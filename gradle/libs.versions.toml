@@ -1,0 +1,96 @@
+# This file contains the versions of the various libraries and plugins used in the project.
+# It is managed by Gradle Version Catalogs.
+
+[versions]
+# Firebase Libraries
+firebaseBom = "33.14.0" # Latest stable Firebase BOM
+firebaseAuth = "23.2.1" # Latest stable Firebase Authentication
+firebaseFirestore = "25.1.4" # Latest stable Firebase Firestore
+
+# AndroidX Compose Libraries
+# Use the Compose BOM to manage compatible versions of Compose libraries
+androidxComposeBom = "2025.05.01" # Latest stable Compose BOM
+composeMaterialIconsExtended = "1.7.8" # Explicitly define if not in BOM or for specific version
+androidxComposeMaterial3 = "1.2.1"
+
+# AndroidX Core Libraries
+androidxCoreKtx = "1.13.1" # Latest stable
+androidxLifecycleRuntimeKtx = "2.8.0" # Latest stable
+
+# AndroidX Activity & Navigation
+androidxActivityCompose = "1.9.0" # Latest stable activity-compose (version from BOM is often used, but explicit is sometimes needed)
+androidxNavigationCompose = "2.9.0" # Latest stable navigation-compose
+
+# AndroidX Navigation (ensure this matches the version used for navigation-runtime and navigation-compose)
+androidxNavigation = "2.9.0"
+
+# Testing Libraries
+junit = "4.13.2"
+androidxJunit = "1.1.5"
+androidxEspressoCore = "3.5.1"
+
+# Android Gradle Plugin and Kotlin Plugin versions (ensure these match your project setup)
+androidGradlePlugin = "8.10.1" # Check your project-level build.gradle.kts for this
+kotlin = "2.0.21" # Check your project-level build.gradle.kts for this
+# Or the version compatible with your Compose compiler
+kotlinComposeCompiler = "2.0.21"
+composeCompiler = "1.5.11"
+
+#composeCharts = "0.2.4-alpha" # Add this line for Compose-Charts
+
+# Gson
+gson = "2.10.1" # Add this line for Gson
+
+[libraries]
+# Firebase Libraries
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuth" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestore" }
+
+# AndroidX Core Libraries
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreKtx" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycleRuntimeKtx" }
+
+# AndroidX Compose BOM (manages versions for most Compose libraries)
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
+
+# Compose UI Libraries (versions managed by androidx-compose-bom)
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+
+# Compose Material Design Libraries (versions managed by androidx-compose-bom)
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "composeMaterialIconsExtended" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "androidxComposeMaterial3" }
+
+# Compose Foundation (for FlowRow, its version is managed by BOM)
+androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout" }
+
+
+# AndroidX Activity & Navigation Libraries
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityCompose" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
+androidx-navigation-runtime = { group = "androidx.navigation", name = "navigation-runtime", version.ref = "androidxNavigation" }
+
+# Gson
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" } # Add this line for Gson
+
+# Testing Libraries
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidxEspressoCore" }
+
+#compose-charts = { group = "com.github.tehras:charts", name = "charts", version.ref = "composeCharts" }
+#compose-charts-bar = { group = "com.github.tehras:charts", name = "bar", version.ref = "composeCharts" }
+# If you plan to add other chart types later (like pie charts), you would add:
+# compose-charts-pie = { group = "com.github.tehras:charts", name = "pie", version.ref = "composeCharts" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlinComposeCompiler" } # Note: This plugin version should match Kotlin version
+
